@@ -57,16 +57,9 @@ def main_solve():
             finSta = item[12]
             solve_alot_problem(city,salary,job,degree,exp,finSta)
 
-def do_something(item):
-    salary_list= [salary_city,salary_degree,salary_exp,salary_finSta,salary_job]
-    pass
+
 def creat_picture():
     page = Page()
-    Item_list = ['job_count','degree_count','exp_count','finSta_count']
-    #job_avg, degree_avg, exp_avg = [do_something(dictionary) for dictionary in (job_count, degree_count, exp_count)]
-    
-    #job_salary_avg, degree_salary_avg, exp_salary_avg, finSta_salary_avg = {item.split('_')[0] :do_something(item) for item in Item_list }
-
     city_salary_avg = {city:salary_city[city]//city_count[city] for city in city_count if city_count[city]!=0}
 
     job_salary_avg = {job:salary_job[job]//job_count[job] for job in job_count}
