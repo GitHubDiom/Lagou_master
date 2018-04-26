@@ -1,1 +1,0 @@
-mongoexport --db lagou --collection intervieweeComment --type=csv --fields 'positionName,companyName,companyId,companyScore,describeScore,comprehensiveScore,interviewerScore,usefulCount,myScore,replyCount,isAnonymous,sentiment' --out '/tmp/lagou_interviewee.csv'
