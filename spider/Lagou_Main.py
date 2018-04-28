@@ -1,12 +1,7 @@
 # -*- coding: utf-8 -*-
 # !/usr/bin/env python
-import re
-import os
-import time
-import requests
-import sys
+import re,os,time,requests,sys,traceback
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir)))
-
 from util.file_reader import parse_job_xml
 import pandas as pd
 from config.config import *
@@ -19,6 +14,7 @@ from util import log
 
 log_temp = log.Logger()#实例化日志对象
 log = log_temp.getLoger('log')
+
 def get_headers():
     headers={
             "Accept": "application/json, text/javascript, */*; q=0.01",
@@ -47,49 +43,51 @@ def get_Info(positionName,pn):
     return form_data
 def crawl_jobs(positionName):
     """crawl the job info from lagou H5 web pages"""
-    JOB_DATA = list()
-    max_page_number = get_max_pageNo(positionName)
-    info_str=positionName, "共有",max_page_number,"页记录, 共约",max_page_number * 15,"条记录"
-    str_info = ''
-    for s in info_str:
-        if s=='"':
-            continue
-        else:
-            str_info=str_info+str(s)
-    log.info(str_info)
-    for pn in range(1, max_page_number + 1):
-        headers=get_headers()
-        form_data=get_Info(positionName,pn)
-        url="https://www.lagou.com/jobs/positionAjax.json?needAddtionalResult=false"
-        response = requests.post(url,headers=headers,data=form_data)
-        if response.status_code == 200:
-            for each_item in response.json()['content']['positionResult']['result']:#通过分析Ajax返回的JSON数据进行筛选
-                a= re.findall('\d\d?',each_item['salary'])
-                l=int(a[0])
-                try:
-                    r=int(a[1])
-                except:
-                    r=l
-                JOB_DATA.append([each_item['positionId'],       each_item['positionName'],      each_item['city'],
-                                 each_item['createTime'],       (l+(r-l)*0.4),           each_item['companyId'], 
-                                 each_item['companyShortName'], each_item['companyFullName'],   each_item['companySize'],
-                                 each_item['district'],         each_item['education'],         each_item['financeStage'],
-                                 each_item['industryField'],    each_item['longitude'],         each_item['latitude'],
-                                 each_item['jobNature'],        each_item['workYear']
-                                ])
-                # try:
-                    # crawl_job_detail(each_item['positionId'], positionName)
-                # except:
-                #     pass
-            print('crawling page %d done... \r' % pn)
-            time.sleep(TIME_SLEEP)
-        elif response.status_code == 403:
-            log.error('request is forbidden by the server...')
-        else:
-            log.error(response.status_code)
+    try:
+        JOB_DATA = list()
+        max_page_number = get_max_pageNo(positionName)
+        info_str=positionName, "共有",max_page_number,"页记录, 共约",max_page_number * 15,"条记录"
+        str_info = ''
+        for s in info_str:
+            if s=='"':
+                continue
+            else:
+                str_info=str_info+str(s)
+        log.info(str_info)
+        for pn in range(1, max_page_number + 1):
+            headers=get_headers()
+            form_data=get_Info(positionName,pn)
+            url="https://www.lagou.com/jobs/positionAjax.json?needAddtionalResult=false"
+            response = requests.post(url,headers=headers,data=form_data)
+            if response.status_code == 200:
+                for each_item in response.json()['content']['positionResult']['result']:#通过分析Ajax返回的JSON数据进行筛选
+                    a= re.findall('\d\d?',each_item['salary'])
+                    l=int(a[0])
+                    try:
+                        r=int(a[1])
+                    except:
+                        r=l
+                    JOB_DATA.append([each_item['positionId'],       each_item['positionName'],      each_item['city'],
+                                     each_item['createTime'],       (l+(r-l)*0.4),           each_item['companyId'], 
+                                     each_item['companyShortName'], each_item['companyFullName'],   each_item['companySize'],
+                                     each_item['district'],         each_item['education'],         each_item['financeStage'],
+                                     each_item['industryField'],    each_item['longitude'],         each_item['latitude'],
+                                     each_item['jobNature'],        each_item['workYear']
+                                    ])
+                    # try:
+                        # crawl_job_detail(each_item['positionId'], positionName)
+                    # except:
+                    #     pass
+                print('crawling page %d done... \r' % pn)
+                time.sleep(TIME_SLEEP)
+            elif response.status_code == 403:
+                log.error('request is forbidden by the server...')
+            else:
+                log.error(response.status_code)
 
-    return JOB_DATA
-
+        return JOB_DATA
+    except Exception as e:
+        log.error(traceback.format_exc())
 
 def get_cookies():
     """return the cookies after your first visit"""
@@ -154,18 +152,22 @@ def write_to_csv(df , position):
 
 if __name__ == '__main__':
     craw_job_list = parse_job_xml('../config/job.xml')
-    for position in craw_job_list:
-        joblist = crawl_jobs(position)
-        print(joblist)
-        col = [
-            u'职位编码',        u'职位名称',            u'所在城市',
-            u'发布日期',        u'薪资待遇(k)',         u'公司编码',
-            u'公司名称',        u'公司全称',            u'公司规模',
-            u'所在区域',        u'最低学历',            u'融资状态',
-            u'公司类型',        u'经度',                u'纬度',           
-            u'全职/实习',       u'工作经验'
-            ]
-        df = pd.DataFrame(joblist, columns=col)
-        #write_to_excel(df,position)
-        write_to_csv(df,position)
-    log.info('爬取任务完成！')
+    try:
+        for position in craw_job_list:
+            joblist = crawl_jobs(position)
+            col = [
+                u'职位编码',        u'职位名称',            u'所在城市',
+                u'发布日期',        u'薪资待遇(k)',         u'公司编码',
+                u'公司名称',        u'公司全称',            u'公司规模',
+                u'所在区域',        u'最低学历',            u'融资状态',
+                u'公司类型',        u'经度',                u'纬度',           
+                u'全职/实习',       u'工作经验'
+                ]
+            df = pd.DataFrame(joblist, columns=col)
+            #write_to_excel(df,position)
+            write_to_csv(df,position)
+        log.info('爬取任务完成！')
+    except Exception as e:
+        log.error(traceback.format_exc())
+
+        
