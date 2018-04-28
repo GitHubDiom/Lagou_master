@@ -90,6 +90,7 @@ def crawl_jobs(positionName):
 
         return JOB_DATA
     except Exception:
+        send_email(traceback.format_exc())        
         log.error(traceback.format_exc())
 
 def get_cookies():
