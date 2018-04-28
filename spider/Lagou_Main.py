@@ -12,6 +12,9 @@ except:
 import xlwt
 from util import log
 
+import smtplib
+from email.mime.text import MIMEText
+from email.header import Header
 log_temp = log.Logger()#实例化日志对象
 log = log_temp.getLoger('log')
 
@@ -86,7 +89,7 @@ def crawl_jobs(positionName):
                 log.error(response.status_code)
 
         return JOB_DATA
-    except Exception as e:
+    except Exception:
         log.error(traceback.format_exc())
 
 def get_cookies():
@@ -149,6 +152,32 @@ def write_to_csv(df , position):
     except:
         log.error("路径为 "+csv_path+"的CSV文件创建失败")
 
+def send_email(text):
+    # 第三方 SMTP 服务
+    mail_host="smtp.163.com"  #设置服务器
+    mail_user="diom_wu@163.com"    #用户名
+    mail_pass="wuzhaorui05"   #口令 
+    
+    
+    sender = 'diom_wu@163.com'
+    receivers = ['diom_wu@163.com']  
+    
+    message = MIMEText(text, 'plain', 'utf-8')
+    #message['From'] = Header("菜鸟教程", 'utf-8')
+    #message['To'] =  Header("测试", 'utf-8')
+    
+    subject = 'Python SMTP 邮件测试'
+    message['Subject'] = Header(subject, 'utf-8')
+
+    try:
+        smtpObj = smtplib.SMTP() 
+        smtpObj.connect(mail_host, 25)    
+        smtpObj.login(mail_user,mail_pass)
+        smtpObj.sendmail(sender, receivers, message.as_string())
+        print ("邮件发送成功")
+    except smtplib.SMTPException:
+        log.error(traceback.print_exc())
+        print("Error: 无法发送邮件")
 
 if __name__ == '__main__':
     craw_job_list = parse_job_xml('../config/job.xml')
@@ -168,6 +197,7 @@ if __name__ == '__main__':
             write_to_csv(df,position)
         log.info('爬取任务完成！')
     except Exception as e:
+        send_email(traceback.format_exc())
         log.error(traceback.format_exc())
 
         

@@ -1,5 +1,0 @@
-2018-04-28 11:50:06,363 expection.py [line:25] ERROR:Traceback (most recent call last):
-  File ".\expection.py", line 22, in <module>
-    print(response.json()['content']['positionResult']['totalCount'])
-KeyError: 'content'
-
