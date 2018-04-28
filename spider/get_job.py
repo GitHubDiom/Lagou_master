@@ -13,24 +13,6 @@ def getHtmlText(request_url):
     except:
         return ""
 def write_to_xml(dic):
-    #doc = Document()  
-    #people = doc.createElement("people")  
-    #doc.appendChild(people)  
-    #aperson = doc.createElement("person")  
-    #people.appendChild(aperson)  
-    #name = doc.createElement("name")  
-    #name1 = doc.createElement("name")  
-#
-    #aperson.appendChild(name)
-    #aperson.appendChild(name1)  
-    #personname = doc.createTextNode("Annie")  
-    #personname1 = doc.createTextNode('Bob')
-    #name.appendChild(personname)  
-    #name1.appendChild(personname1)  
-    #filename = "people.xml"  
-    #f = open(filename, "w")  
-    #f.write(doc.toprettyxml(indent="  "))  
-    #f.close()  
     f = open('../config/job.xml','w',encoding='utf-8')
     doc = Document()  
     job_list = doc.createElement("job_list")  
