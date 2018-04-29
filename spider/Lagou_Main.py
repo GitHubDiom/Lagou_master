@@ -179,7 +179,6 @@ def send_email(text):
 
 if __name__ == '__main__':
     craw_job_list = parse_job_xml('../config/job.xml')
-    
     try:
         for position_catalog in craw_job_list:
             for position in craw_job_list[position_catalog]:
@@ -198,7 +197,7 @@ if __name__ == '__main__':
 
         log.info('爬取任务完成！')
     except Exception as e:
-        #send_email(traceback.format_exc())
+        send_email(traceback.format_exc())
         log.error(traceback.format_exc())
 
         
