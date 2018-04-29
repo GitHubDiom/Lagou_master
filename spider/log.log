@@ -1,0 +1,36 @@
+2018-04-29 13:47:03,433 Lagou_Main.py [line:60] INFO:图共有18页记录, 共约270条记录
+2018-04-29 13:47:23,732 Lagou_Main.py [line:60] INFO:图共有18页记录, 共约270条记录
+2018-04-29 13:48:18,201 Lagou_Main.py [line:59] INFO:图像处理共有11页记录, 共约165条记录
+2018-04-29 13:48:18,647 Lagou_Main.py [line:152] ERROR:路径为 ./data/人工智能/图像处理.csv的CSV文件创建失败
+2018-04-29 13:48:19,209 Lagou_Main.py [line:59] INFO:Java共有1305页记录, 共约19575条记录
+2018-04-29 13:48:20,202 Lagou_Main.py [line:152] ERROR:路径为 ./data/后端开发/Java.csv的CSV文件创建失败
+2018-04-29 13:48:20,778 Lagou_Main.py [line:59] INFO:C++共有231页记录, 共约3465条记录
+2018-04-29 13:48:28,613 Lagou_Main.py [line:59] INFO:图像处理共有11页记录, 共约165条记录
+2018-04-29 13:48:39,098 Lagou_Main.py [line:152] ERROR:路径为 ./data/人工智能/图像处理.csv的CSV文件创建失败
+2018-04-29 13:48:40,058 Lagou_Main.py [line:59] INFO:Java共有1305页记录, 共约19575条记录
+2018-04-29 13:49:07,688 Lagou_Main.py [line:59] INFO:图像处理共有11页记录, 共约165条记录
+2018-04-29 13:49:29,928 Lagou_Main.py [line:59] INFO:图像处理共有11页记录, 共约165条记录
+2018-04-29 13:49:39,705 Lagou_Main.py [line:152] ERROR:路径为 ./data/人工智能/图像处理.csv的CSV文件创建失败
+2018-04-29 13:49:39,705 Lagou_Main.py [line:203] INFO:爬取任务完成！
+2018-04-29 13:49:53,601 Lagou_Main.py [line:59] INFO:图像识别共有5页记录, 共约75条记录
+2018-04-29 13:49:57,684 Lagou_Main.py [line:152] ERROR:路径为 ./data/人工智能/图像识别.csv的CSV文件创建失败
+2018-04-29 13:49:57,685 Lagou_Main.py [line:203] INFO:爬取任务完成！
+2018-04-29 13:50:56,043 Lagou_Main.py [line:59] INFO:图像识别共有5页记录, 共约75条记录
+2018-04-29 13:50:58,490 Lagou_Main.py [line:206] ERROR:Traceback (most recent call last):
+  File ".\Lagou_Main.py", line 201, in <module>
+    write_to_csv(df,position,position_catalog)
+  File ".\Lagou_Main.py", line 145, in write_to_csv
+    csv_path = path+'+position+'.csv
+AttributeError: 'str' object has no attribute 'csv'
+
+2018-04-29 13:51:33,370 Lagou_Main.py [line:59] INFO:图像识别共有5页记录, 共约75条记录
+2018-04-29 13:51:37,794 Lagou_Main.py [line:150] INFO:CSV文件创建成功，文件名路径为./data/人工智能/图像识别.csv
+2018-04-29 13:51:37,794 Lagou_Main.py [line:203] INFO:爬取任务完成！
+2018-04-29 13:52:12,699 Lagou_Main.py [line:59] INFO:图像识别共有5页记录, 共约75条记录
+2018-04-29 13:52:16,331 Lagou_Main.py [line:150] INFO:CSV文件创建成功，文件名路径为./data/人工智能/图像识别.csv
+2018-04-29 13:52:16,864 Lagou_Main.py [line:59] INFO:区块链共有68页记录, 共约1020条记录
+2018-04-29 13:53:11,497 Lagou_Main.py [line:150] INFO:CSV文件创建成功，文件名路径为./data/后端开发/区块链.csv
+2018-04-29 13:53:11,498 Lagou_Main.py [line:203] INFO:爬取任务完成！
+2018-04-29 13:54:50,930 Lagou_Main.py [line:59] INFO:Java共有1305页记录, 共约19575条记录
+2018-04-29 13:55:40,775 Lagou_Main.py [line:59] INFO:Java共有1305页记录, 共约19575条记录
+2018-04-29 14:04:47,595 Lagou_Main.py [line:59] INFO:Java共有1305页记录, 共约19575条记录

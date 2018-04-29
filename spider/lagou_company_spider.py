@@ -5,7 +5,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardi
 
 from config import config
 import os
-from spider import m_lagou_spider
+from spider import Lagou_Main
 
 import requests
 from bs4 import BeautifulSoup
@@ -43,7 +43,7 @@ def crawl_company(havemark=0):
             'havemark': str(havemark)
         }
 
-        response = requests.post(req_url, headers=headers, params=params, cookies=m_lagou_spider.get_cookies(),
+        response = requests.post(req_url, headers=headers, params=params, cookies=Lagou_Main.get_cookies(),
                                  timeout=10)
         #print(response.url)
         if response.status_code == 200:
@@ -72,7 +72,7 @@ def crawl_company_stage(company_id,company_name):
         'Upgrade-Insecure-Requests': '1',
         'User-Agent': 'Mozilla/5.0 (iPad; CPU OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1'
     }
-    response = requests.get(req_url, headers=headers, cookies=m_lagou_spider.get_cookies(), timeout=20)
+    response = requests.get(req_url, headers=headers, cookies=Lagou_Main.get_cookies(), timeout=20)
     print(company_name)
     if response.status_code == 200:
         soup = BeautifulSoup(response.text, 'html.parser')
