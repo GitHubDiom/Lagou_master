@@ -125,24 +125,26 @@ def get_max_pageNo(positionName):
         return 0
 
 
-def write_to_excel(df,position):
-    path = "./data/"
-    excel_path = path+position+".xlsx"
-    try:
-        if not os.path.exists(path):
-            os.mkdir(path)
-        if not os.path.exists(excel_path):
-            filename = xlwt.Workbook()
-            sheet=filename.add_sheet(position)
-        df.to_excel(path + position + ".xlsx", sheet_name=position, index=False)
-        log.info("Excel表格创建成功，文件名路径为"+excel_path)
-    except:
-        log.error("路径为 "+excel_path+"的Excel表格创建失败")
+#def write_to_excel(df,position):
+#    path = "./data/"
+#    excel_path = path+position+".xlsx"
+#    try:
+#        if not os.path.exists(path):
+#            os.mkdir(path)
+#        if not os.path.exists(excel_path):
+#            filename = xlwt.Workbook()
+#            sheet=filename.add_sheet(position)
+#        df.to_excel(path + position + ".xlsx", sheet_name=position, index=False)
+#        log.info("Excel表格创建成功，文件名路径为"+excel_path)
+#    except:
+#        log.error("路径为 "+excel_path+"的Excel表格创建失败")
 
 def write_to_csv(df , position,position_catalog):
     path ='./data/'+position_catalog+'/'
     csv_path = path+position+'.csv'
     try:
+        if not os.path.exists('./data'):
+            os.mkdir('./data')
         if not os.path.exists(path):
             os.mkdir(path)
         df.to_csv(csv_path)
@@ -155,7 +157,6 @@ def send_email(text):
     mail_host="smtp.163.com"  #设置服务器
     mail_user="diom_wu@163.com"    #用户名
     mail_pass="wuzhaorui05"   #口令 
-    
     
     sender = 'diom_wu@163.com'
     receivers = ['diom_wu@163.com']  

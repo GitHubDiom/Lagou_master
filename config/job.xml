@@ -1,7 +1,37 @@
 <?xml version="1.0" ?>
 <job_list>
+   <job_catalog>
+        人工智能
+        <job>图像识别</job>
+        <job>图像处理</job>
+        <job>深度学习</job>
+        <job>机器学习</job>
+        <job>语音识别</job>
+        <job>机器视觉</job>
+        <job>算法工程师</job>
+        <job>自然语言处理</job>
+    </job_catalog>
+    <job_catalog>
+        移动开发
+        <job>HTML5</job>
+        <job>Android</job>
+        <job>iOS</job>
+        <job>WP</job>
+        <job>移动开发其它</job>
+    </job_catalog>
+    <job_catalog>
+        前端开发
+        <job>web前端</job>
+        <job>Flash</job>
+        <job>html5</job>
+        <job>JavaScript</job>
+        <job>U3D</job>
+        <job>COCOS2D-X</job>
+        <job>前端开发其它</job>
+    </job_catalog>
     <job_catalog>
         后端开发
+        
         <job>Java</job>
         <job>C++</job>
         <job>PHP</job>
@@ -24,35 +54,6 @@
         <job>Shell</job>
         <job>区块链</job>
         <job>后端开发其它</job>
-    </job_catalog>
-    <job_catalog>
-        移动开发
-        <job>HTML5</job>
-        <job>Android</job>
-        <job>iOS</job>
-        <job>WP</job>
-        <job>移动开发其它</job>
-    </job_catalog>
-    <job_catalog>
-        前端开发
-        <job>web前端</job>
-        <job>Flash</job>
-        <job>html5</job>
-        <job>JavaScript</job>
-        <job>U3D</job>
-        <job>COCOS2D-X</job>
-        <job>前端开发其它</job>
-    </job_catalog>
-    <job_catalog>
-        人工智能
-        <job>深度学习</job>
-        <job>机器学习</job>
-        <job>图像处理</job>
-        <job>图像识别</job>
-        <job>语音识别</job>
-        <job>机器视觉</job>
-        <job>算法工程师</job>
-        <job>自然语言处理</job>
     </job_catalog>
     <job_catalog>
         测试

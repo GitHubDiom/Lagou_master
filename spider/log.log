@@ -34,3 +34,98 @@ AttributeError: 'str' object has no attribute 'csv'
 2018-04-29 13:54:50,930 Lagou_Main.py [line:59] INFO:Java共有1305页记录, 共约19575条记录
 2018-04-29 13:55:40,775 Lagou_Main.py [line:59] INFO:Java共有1305页记录, 共约19575条记录
 2018-04-29 14:04:47,595 Lagou_Main.py [line:59] INFO:Java共有1305页记录, 共约19575条记录
+2018-04-29 14:21:16,844 Lagou_Main.py [line:59] INFO:Java共有1305页记录, 共约19575条记录
+2018-04-29 14:21:48,147 Lagou_Main.py [line:59] INFO:图像处理共有11页记录, 共约165条记录
+2018-04-29 14:22:08,148 Lagou_Main.py [line:59] INFO:图像识别共有5页记录, 共约75条记录
+2018-04-29 14:22:10,209 Lagou_Main.py [line:151] ERROR:路径为 ./data/人工智能/图像识别.csv的CSV文件创建失败
+2018-04-29 14:23:03,407 Lagou_Main.py [line:59] INFO:图像识别共有5页记录, 共约75条记录
+2018-04-29 14:23:07,180 Lagou_Main.py [line:151] ERROR:路径为 ./data/人工智能/图像识别.csv的CSV文件创建失败
+2018-04-29 14:23:08,129 Lagou_Main.py [line:59] INFO:图像处理共有11页记录, 共约165条记录
+2018-04-29 14:23:12,444 Lagou_Main.py [line:59] INFO:图像识别共有5页记录, 共约75条记录
+2018-04-29 14:23:15,303 Lagou_Main.py [line:151] ERROR:路径为 ./data/人工智能/图像识别.csv的CSV文件创建失败
+2018-04-29 14:23:15,717 Lagou_Main.py [line:59] INFO:图像处理共有11页记录, 共约165条记录
+2018-04-29 14:24:55,866 Lagou_Main.py [line:59] INFO:图像识别共有5页记录, 共约75条记录
+2018-04-29 14:24:57,740 Lagou_Main.py [line:151] ERROR:路径为 ./data/人工智能/图像识别.csv的CSV文件创建失败
+2018-04-29 14:24:58,219 Lagou_Main.py [line:59] INFO:图像处理共有11页记录, 共约165条记录
+2018-04-29 14:25:17,416 Lagou_Main.py [line:59] INFO:图像识别共有5页记录, 共约75条记录
+2018-04-29 14:25:19,226 Lagou_Main.py [line:151] ERROR:路径为 ./data/人工智能图像识别.csv的CSV文件创建失败
+2018-04-29 14:25:19,596 Lagou_Main.py [line:59] INFO:图像处理共有11页记录, 共约165条记录
+2018-04-29 14:25:24,037 Lagou_Main.py [line:92] ERROR:Traceback (most recent call last):
+  File "E:\python36\lib\site-packages\urllib3\contrib\pyopenssl.py", line 441, in wrap_socket
+    cnx.do_handshake()
+  File "E:\python36\lib\site-packages\OpenSSL\SSL.py", line 1806, in do_handshake
+    self._raise_ssl_error(self._ssl, result)
+  File "E:\python36\lib\site-packages\OpenSSL\SSL.py", line 1546, in _raise_ssl_error
+    _raise_current_error()
+  File "E:\python36\lib\site-packages\OpenSSL\_util.py", line 54, in exception_from_error_queue
+    raise exception_type(errors)
+OpenSSL.SSL.Error: [('SSL routines', 'tls_process_server_certificate', 'certificate verify failed')]
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\python36\lib\site-packages\urllib3\connectionpool.py", line 601, in urlopen
+    chunked=chunked)
+  File "E:\python36\lib\site-packages\urllib3\connectionpool.py", line 346, in _make_request
+    self._validate_conn(conn)
+  File "E:\python36\lib\site-packages\urllib3\connectionpool.py", line 850, in _validate_conn
+    conn.connect()
+  File "E:\python36\lib\site-packages\urllib3\connection.py", line 326, in connect
+    ssl_context=context)
+  File "E:\python36\lib\site-packages\urllib3\util\ssl_.py", line 329, in ssl_wrap_socket
+    return context.wrap_socket(sock, server_hostname=server_hostname)
+  File "E:\python36\lib\site-packages\urllib3\contrib\pyopenssl.py", line 448, in wrap_socket
+    raise ssl.SSLError('bad handshake: %r' % e)
+ssl.SSLError: ("bad handshake: Error([('SSL routines', 'tls_process_server_certificate', 'certificate verify failed')],)",)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\python36\lib\site-packages\requests\adapters.py", line 440, in send
+    timeout=timeout
+  File "E:\python36\lib\site-packages\urllib3\connectionpool.py", line 639, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "E:\python36\lib\site-packages\urllib3\util\retry.py", line 388, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.lagou.com', port=443): Max retries exceeded with url: /jobs/positionAjax.json?needAddtionalResult=false (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'tls_process_server_certificate', 'certificate verify failed')],)",),))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File ".\Lagou_Main.py", line 64, in crawl_jobs
+    response = requests.post(url,headers=headers,data=form_data)
+  File "E:\python36\lib\site-packages\requests\api.py", line 112, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "E:\python36\lib\site-packages\requests\api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "E:\python36\lib\site-packages\requests\sessions.py", line 508, in request
+    resp = self.send(prep, **send_kwargs)
+  File "E:\python36\lib\site-packages\requests\sessions.py", line 618, in send
+    r = adapter.send(request, **kwargs)
+  File "E:\python36\lib\site-packages\requests\adapters.py", line 506, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='www.lagou.com', port=443): Max retries exceeded with url: /jobs/positionAjax.json?needAddtionalResult=false (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'tls_process_server_certificate', 'certificate verify failed')],)",),))
+
+2018-04-29 14:25:24,042 Lagou_Main.py [line:151] ERROR:路径为 ./data/人工智能图像处理.csv的CSV文件创建失败
+2018-04-29 14:25:24,593 Lagou_Main.py [line:59] INFO:深度学习共有99页记录, 共约1485条记录
+2018-04-29 14:25:38,546 Lagou_Main.py [line:59] INFO:图像识别共有5页记录, 共约75条记录
+2018-04-29 14:25:40,665 Lagou_Main.py [line:149] INFO:CSV文件创建成功，文件名路径为./data/图像识别.csv
+2018-04-29 14:25:41,051 Lagou_Main.py [line:59] INFO:图像处理共有11页记录, 共约165条记录
+2018-04-29 14:26:10,032 Lagou_Main.py [line:59] INFO:图像识别共有5页记录, 共约75条记录
+2018-04-29 14:26:12,566 Lagou_Main.py [line:149] INFO:CSV文件创建成功，文件名路径为./data/人工智能/图像识别.csv
+2018-04-29 14:26:12,967 Lagou_Main.py [line:59] INFO:图像处理共有11页记录, 共约165条记录
+2018-04-29 14:26:21,673 Lagou_Main.py [line:59] INFO:图像识别共有5页记录, 共约75条记录
+2018-04-29 14:26:24,109 Lagou_Main.py [line:151] ERROR:路径为 ./data/人工智能/图像识别.csv的CSV文件创建失败
+2018-04-29 14:26:24,569 Lagou_Main.py [line:59] INFO:图像处理共有11页记录, 共约165条记录
+2018-04-29 14:27:18,482 Lagou_Main.py [line:59] INFO:图像识别共有5页记录, 共约75条记录
+2018-04-29 14:27:21,260 Lagou_Main.py [line:152] ERROR:路径为 ./data/人工智能/图像识别.csv的CSV文件创建失败
+2018-04-29 14:27:22,225 Lagou_Main.py [line:59] INFO:图像处理共有11页记录, 共约165条记录
+2018-04-29 14:27:57,370 Lagou_Main.py [line:59] INFO:图像识别共有5页记录, 共约75条记录
+2018-04-29 14:27:59,511 Lagou_Main.py [line:153] ERROR:路径为 ./data/人工智能/图像识别.csv的CSV文件创建失败
+2018-04-29 14:27:59,884 Lagou_Main.py [line:59] INFO:图像处理共有11页记录, 共约165条记录
+2018-04-29 14:28:15,791 Lagou_Main.py [line:59] INFO:图像识别共有5页记录, 共约75条记录
+2018-04-29 14:28:19,769 Lagou_Main.py [line:151] INFO:CSV文件创建成功，文件名路径为./data/人工智能/图像识别.csv
+2018-04-29 14:28:20,370 Lagou_Main.py [line:59] INFO:图像处理共有11页记录, 共约165条记录
+2018-04-29 14:31:21,634 Lagou_Main.py [line:59] INFO:图像识别共有5页记录, 共约75条记录
+2018-04-29 14:31:24,325 Lagou_Main.py [line:151] INFO:CSV文件创建成功，文件名路径为./data/人工智能/图像识别.csv
+2018-04-29 14:31:24,768 Lagou_Main.py [line:59] INFO:图像处理共有11页记录, 共约165条记录
