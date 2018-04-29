@@ -71,25 +71,23 @@ def crawl_jobs(positionName):
                     except:
                         r=l
                     JOB_DATA.append([each_item['positionId'],       each_item['positionName'],      each_item['city'],
-                                     each_item['createTime'],       (l+(r-l)*0.4),           each_item['companyId'], 
-                                     each_item['companyShortName'], each_item['companyFullName'],   each_item['companySize'],
-                                     each_item['district'],         each_item['education'],         each_item['financeStage'],
-                                     each_item['industryField'],    each_item['longitude'],         each_item['latitude'],
-                                     each_item['jobNature'],        each_item['workYear']
+                                        each_item['createTime'],       (l+(r-l)*0.4),           each_item['companyId'], 
+                                        each_item['companyShortName'], each_item['companyFullName'],   each_item['companySize'],
+                                        each_item['district'],         each_item['education'],         each_item['financeStage'],
+                                        each_item['industryField'],    each_item['longitude'],         each_item['latitude'],
+                                        each_item['jobNature'],        each_item['workYear']
                                     ])
-                    # try:
-                        # crawl_job_detail(each_item['positionId'], positionName)
-                    # except:
-                    #     pass
-                print('crawling page %d done... \r' % pn)
-                time.sleep(TIME_SLEEP)
+                print("当前页数：{0} 总进度为:{1}%".format(pn,round((pn + 1) * 100 / max_page_number)), end="\r")
+                time.sleep(0.01)
+                if pn%30 ==0:
+                    time.sleep(TIME_SLEEP)
             elif response.status_code == 403:
                 log.error('request is forbidden by the server...')
             else:
                 log.error(response.status_code)
-
         return JOB_DATA
     except Exception:
+        print('error')
         send_email(traceback.format_exc())        
         log.error(traceback.format_exc())
 
@@ -141,15 +139,14 @@ def write_to_excel(df,position):
     except:
         log.error("路径为 "+excel_path+"的Excel表格创建失败")
 
-def write_to_csv(df , position):
-    path ='./data/'
+def write_to_csv(df , position,position_catalog):
+    path ='./data/'+position_catalog+'/'
     csv_path = path+position+'.csv'
     try:
         if not os.path.exists(path):
             os.mkdir(path)
         df.to_csv(csv_path)
         log.info("CSV文件创建成功，文件名路径为"+csv_path)
-
     except:
         log.error("路径为 "+csv_path+"的CSV文件创建失败")
 
@@ -182,23 +179,26 @@ def send_email(text):
 
 if __name__ == '__main__':
     craw_job_list = parse_job_xml('../config/job.xml')
+    
     try:
-        for position in craw_job_list:
-            joblist = crawl_jobs(position)
-            col = [
-                u'职位编码',        u'职位名称',            u'所在城市',
-                u'发布日期',        u'薪资待遇(k)',         u'公司编码',
-                u'公司名称',        u'公司全称',            u'公司规模',
-                u'所在区域',        u'最低学历',            u'融资状态',
-                u'公司类型',        u'经度',                u'纬度',           
-                u'全职/实习',       u'工作经验'
-                ]
-            df = pd.DataFrame(joblist, columns=col)
-            #write_to_excel(df,position)
-            write_to_csv(df,position)
+        for position_catalog in craw_job_list:
+            for position in craw_job_list[position_catalog]:
+                joblist = crawl_jobs(position)
+                col = [
+                    u'职位编码',        u'职位名称',            u'所在城市',
+                    u'发布日期',        u'薪资待遇(k)',         u'公司编码',
+                    u'公司名称',        u'公司全称',            u'公司规模',
+                    u'所在区域',        u'最低学历',            u'融资状态',
+                    u'公司类型',        u'经度',                u'纬度',           
+                    u'全职/实习',       u'工作经验'
+                    ]
+                df = pd.DataFrame(joblist, columns=col)
+                #write_to_excel(df,position)
+                write_to_csv(df,position,position_catalog)
+
         log.info('爬取任务完成！')
     except Exception as e:
-        send_email(traceback.format_exc())
+        #send_email(traceback.format_exc())
         log.error(traceback.format_exc())
 
         
