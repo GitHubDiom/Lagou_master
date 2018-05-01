@@ -75,11 +75,11 @@ def crawl_jobs(positionName):
                                         each_item['companyShortName'], each_item['companyFullName'],   each_item['companySize'],
                                         each_item['district'],         each_item['education'],         each_item['financeStage'],
                                         each_item['industryField'],    each_item['longitude'],         each_item['latitude'],
-                                        each_item['jobNature'],        each_item['workYear']
+                                        each_item['jobNature'],        each_item['workYear'],          each_item['companyLabelList']
                                     ])
                 print("当前页数：{0} 总进度为:{1}%".format(pn,round((pn + 1) * 100 / max_page_number)), end="\r")
                 time.sleep(0.01)
-                if pn%30 ==0:
+                if pn%20 ==0:
                     time.sleep(TIME_SLEEP)
             elif response.status_code == 403:
                 log.error('request is forbidden by the server...')
@@ -87,35 +87,18 @@ def crawl_jobs(positionName):
                 log.error(response.status_code)
         return JOB_DATA
     except Exception:
-        print('error')
-        send_email(traceback.format_exc())        
+        log.error('error in '+positionName+' at page :'+str(pn)+'\n')
+        #send_email(traceback.format_exc())        
         log.error(traceback.format_exc())
-
-def get_cookies():
-    """return the cookies after your first visit"""
-    headers = {
-        'Host': 'm.lagou.com',
-        'Upgrade-Insecure-Requests': '1',
-        'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit/600.1.3 (KHTML, like Gecko) Version/8.0 Mobile/12A4345d Safari/600.1.4'
-    }
-    url = 'https://m.lagou.com/'
-    response = requests.get(url, headers=headers, timeout=10)
-    return response.cookies
-
 
 def get_max_pageNo(positionName):
     """return the max page number of a specific job"""
-    #cookies = get_cookies()
     request_url = "https://www.lagou.com/jobs/positionAjax.json?needAddtionalResult=false"
-
     headers = get_headers()
     form_data=get_Info(positionName,1)
     response = requests.post(request_url, headers=headers, data = form_data,timeout=10)
-    print("Getting data from %s successfully~" % positionName + request_url)
     if response.status_code == 200:
         max_page_no = int(int(response.json()['content']['positionResult']['totalCount']) / 15 + 1)
-        #if max_page_no>30:
-        #    max_page_no=30
         return max_page_no
     elif response.status_code == 403:
         log.error('request is forbidden by the server...')
@@ -165,7 +148,7 @@ def send_email(text):
     #message['From'] = Header("菜鸟教程", 'utf-8')
     #message['To'] =  Header("测试", 'utf-8')
     
-    subject = 'Python SMTP 邮件测试'
+    subject = '文件运行错误报告'
     message['Subject'] = Header(subject, 'utf-8')
 
     try:
@@ -190,15 +173,14 @@ if __name__ == '__main__':
                     u'公司名称',        u'公司全称',            u'公司规模',
                     u'所在区域',        u'最低学历',            u'融资状态',
                     u'公司类型',        u'经度',                u'纬度',           
-                    u'全职/实习',       u'工作经验'
+                    u'全职/实习',       u'工作经验',            u'吸引条件'
                     ]
                 df = pd.DataFrame(joblist, columns=col)
                 #write_to_excel(df,position)
                 write_to_csv(df,position,position_catalog)
-
         log.info('爬取任务完成！')
     except Exception as e:
-        send_email(traceback.format_exc())
+        #send_email(traceback.format_exc())
         log.error(traceback.format_exc())
 
         
