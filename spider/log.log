@@ -1,0 +1,3 @@
+2018-05-02 22:01:31,000 lagou_master.py [line:48] INFO:Python共有116页记录, 共约1740条记录
+2018-05-02 22:02:46,170 lagou_master.py [line:123] INFO:CSV文件创建成功，文件名路径为./data/详细分析职位/Python.csv
+2018-05-02 22:02:46,553 lagou_master.py [line:48] INFO:Ruby共有9页记录, 共约135条记录

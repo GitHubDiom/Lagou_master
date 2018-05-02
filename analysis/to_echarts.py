@@ -1,9 +1,10 @@
-import time,sys,os,re,json,csv
-from collections import Counter,defaultdict
+# -*- coding: utf-8 -*-
+# !/usr/bin/env python
+import sys,os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir)))
-from pyecharts import Bar, Scatter3D,Pie,Line,Parallel,WordCloud,Geo,Page,Grid,Polar
-from util.file_reader import parse_job_xml
-from operator import itemgetter
+
+from config.config import *
+
 col =   [
             u'职位编码',        u'职位名称',            u'所在城市',
             u'发布日期',        u'薪资待遇(k)',         u'公司编码',

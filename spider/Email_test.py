@@ -1,18 +1,12 @@
 # -*- coding: utf-8 -*-
 # !/usr/bin/env python
+'''
+此文件为测试邮箱功能
 
 '''
-此文件为测试邮箱功能文件
-
-'''
-import re,os,time,requests,sys,traceback
+import sys,os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir)))
-
-from util import log
-
-import smtplib
-from email.mime.text import MIMEText
-from email.header import Header
+from config.config import *
 
 log_temp = log.Logger()#实例化日志对象
 log = log_temp.getLoger('log')
@@ -20,7 +14,7 @@ def send_email(text):
 # 第三方 SMTP 服务
     mail_host="smtp.163.com"  #设置服务器
     mail_user="diom_wu@163.com"    #用户名
-    mail_pass="wuzhaorui05"   #口令 
+    mail_pass="XXXXXXXXX"   #口令 
     sender = 'diom_wu@163.com'
     receivers = ['diom_wu@163.com']  # 接收邮件，可设置为你的QQ邮箱或者其他邮箱
     

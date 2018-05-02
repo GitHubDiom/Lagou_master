@@ -1,20 +1,9 @@
 # -*- coding: utf-8 -*-
 # !/usr/bin/env python
-import re,os,time,requests,sys,traceback
+import sys,os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir)))
-from util.file_reader import parse_job_xml
-import pandas as pd
 from config.config import *
-try:
-    from urllib import parse as parse
-except:
-    import urllib as parse
-import xlwt
-from util import log
 
-import smtplib
-from email.mime.text import MIMEText
-from email.header import Header
 log_temp = log.Logger()#实例化日志对象
 log = log_temp.getLoger('log')
 
@@ -44,6 +33,7 @@ def get_Info(positionName,pn):
                 "kd": str(positionName)
                     }
     return form_data
+
 def crawl_jobs(positionName):
     """crawl the job info from lagou H5 web pages"""
     try:
@@ -88,7 +78,7 @@ def crawl_jobs(positionName):
         return JOB_DATA
     except Exception:
         log.error('error in '+positionName+' at page :'+str(pn)+'\n')
-        #send_email(traceback.format_exc())        
+        send_email(traceback.format_exc())        
         log.error(traceback.format_exc())
 
 def get_max_pageNo(positionName):
@@ -138,8 +128,8 @@ def write_to_csv(df , position,position_catalog):
 def send_email(text):
     # 第三方 SMTP 服务
     mail_host="smtp.163.com"  #设置服务器
-    mail_user="diom_wu@163.com"    #用户名
-    mail_pass="wuzhaorui05"   #口令 
+    mail_user="diom_wu@163.com"#用户名
+    mail_pass="XXXXXX"   #SMTP口令 
     
     sender = 'diom_wu@163.com'
     receivers = ['diom_wu@163.com']  
