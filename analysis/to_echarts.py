@@ -19,6 +19,7 @@ catalog_count = defaultdict(int)
 exp_count = defaultdict(int)
 finSta_count = defaultdict(int)
 district_count = defaultdict(int)
+attract_count = defaultdict(int)
 
 salary_city = defaultdict(int)
 salary_district = defaultdict(int )
@@ -37,11 +38,14 @@ def solve_alot_problem(city,district,salary,job,degree,exp,finSta,position_catal
 
     salary_district[city+district] += salary
     district_count[city+district] += 1
-    print(attract)
+
     salary_job[job] += salary
     job_count[job] += 1
     
-
+   
+    item = re.findall(re.compile('[\u4e00-\u9fa5]{3,10}'),attract)
+    for att in item:
+        attract_count[att]+=1
     salary_catalog[position_catalog] += salary
     catalog_count[position_catalog]+=1
 
@@ -151,6 +155,13 @@ def creat_picture():
     key,value = fin_sta.cast(finSta_salary_avg)
     fin_sta.add("", key, value, is_label_show=True,mark_line=['average'])
     page.add(fin_sta)
+
+
+    wordcloud = WordCloud(width=1300, height=620)
+    name , value = wordcloud.cast(attract_count)
+    wordcloud.add("", name, value, word_size_range=[20, 100],shape='star')
+    #wordcloud.render()
+    page.add(wordcloud)
     page.render()
     
 if __name__ == '__main__':
