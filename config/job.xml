@@ -1,5 +1,14 @@
 <?xml version="1.0" ?>
 <job_list>
+
+   
+    <job_catalog>
+    详细分析职位
+    <job>Python</job>
+    <job>Ruby</job>
+    <job>全栈工程师</job>
+
+     </job_catalog>
    <!--><job_catalog>
         人工智能
         <job>机器视觉</job>
@@ -34,7 +43,8 @@
         后端开发
         <job>Java</job>
         <job>C++</job>
-        <-->
+        
+   
     <job_catalog>
     后端开发
         <job>PHP</job>
@@ -104,7 +114,7 @@
         <job>数据仓库</job>
         <job>DBA其它</job>
     </job_catalog>
-    <!--<job_catalog>
+    <job_catalog>
         高端职位
         <job>技术经理</job>
         <job>技术总监</job>
@@ -144,7 +154,7 @@
         <job>射频工程师</job>
         <job>硬件开发其它</job>
     </job_catalog>
-    <!-->
+    
     <job_catalog>
         企业软件
         <job>实施工程师</job>
@@ -153,4 +163,5 @@
         <job>BI工程师</job>
         <job>企业软件其它</job>
     </job_catalog>
+    <!-->
 </job_list>
