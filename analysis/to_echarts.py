@@ -31,16 +31,18 @@ salary_finSta = defaultdict(int)
 
 
 city_district_count = defaultdict(int)
+position_hot = defaultdict(int)
 
-def solve_alot_problem(city,district,salary,job,degree,exp,finSta,position_catalog,attract):
+def solve_alot_problem(catalog,city,district,salary,job,degree,exp,finSta,position_catalog,attract):
     salary_city[city] += salary
     city_count[city] += 1
 
     salary_district[city+district] += salary
     district_count[city+district] += 1
 
-    salary_job[job] += salary
-    job_count[job] += 1
+    if catalog =='详细分析职位':
+        salary_job[job] += salary
+        job_count[job] += 1
     
    
     item = re.findall(re.compile('[\u4e00-\u9fa5]{3,10}'),attract)
@@ -63,9 +65,8 @@ def solve_alot_problem(city,district,salary,job,degree,exp,finSta,position_catal
 def main_solve():
 
     for position_catalog in os.listdir('../spider/data'):
-        #print(position_catalog+':\n')
+        #if position_catalog =='详细分析职位':
         for job in os.listdir('../spider/data/'+position_catalog):
-            #print("\t"+job)            
             csvFile =  open('../spider/data/'+position_catalog+'/'+job,'r',encoding='utf-8')
             reader =  csv.reader(csvFile)
             job = job.rstrip('.csv')
@@ -79,9 +80,7 @@ def main_solve():
                 exp = item[17]
                 finSta = item[12]
                 attract = item[18]
-                solve_alot_problem(city,district,salary,job,degree,exp,finSta,position_catalog,attract)
-
-
+                solve_alot_problem(position_catalog,city,district,salary,job,degree,exp,finSta,position_catalog,attract)
 
 def creat_picture():
     page = Page()
@@ -105,11 +104,16 @@ def creat_picture():
     geo.add("", city, salary, visual_range=[0, 25] ,visual_text_color="black", symbol_size=15, is_visualmap=True)
     page.add(geo)
 
-    
+    #各岗位热度
+    pie_salary = Pie()
+    key ,value = pie_salary.cast(job_count)
+    pie_salary.add("", key, value, center=[50, 70], is_random=True, radius=[20, 55], is_legend_show=True, is_label_show=True)
+    page.add(pie_salary)
+
     #各岗位平均工资
     pie_salary = Bar()
     key ,value = pie_salary.cast(job_salary_avg)
-    pie_salary.add("", key, value,mark_point=['max','min','Java'],mark_line=['average'],xaxis_interval =1,xaxis_rotate =60  )
+    pie_salary.add("", key, value,mark_point=['max','min'],mark_line=['average'],xaxis_rotate =60  )
     page.add(pie_salary)
     
     #各岗位招聘数量占比
