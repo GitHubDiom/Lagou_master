@@ -6,12 +6,12 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardi
 from config.config import *
 
 col =   [
-            u'职位编码',        u'职位名称',            u'所在城市',
-            u'发布日期',        u'薪资待遇',            u'公司编码',
-            u'公司名称',        u'公司全称',            u'公司规模',
-            u'所在区域',        u'最低学历',            u'融资状态',
-            u'公司类型',        u'经度',                u'纬度',           
-            u'全职/实习',       u'工作经验'             u'吸引条件'
+            'positionId',               'positionName',       'city',
+            'createTime',              'salary',              'companyId',
+            'companyShortName',        'companyFullName',     'companySize',
+            'district',                'education',           'financeStage',
+            'industryField',           'longitude',           'latitude',           
+            'jobNature',               'workYear'             'companyLabelList'
         ]
 job_count = defaultdict(int)
 degree_count = defaultdict(int)
@@ -94,11 +94,12 @@ def main_solve():
     
     #print(city_count) 
     k=3
-    df['所在城市'].replace(list(city_count.keys()),[i for i in range(len(city_count))],inplace = True)
-    df['融资状态'].replace(list(finSta_count.keys()),[i for i in range(len(finSta_count))],inplace = True)
+    df['city'].replace(list(city_count.keys()),[i for i in range(len(city_count))],inplace = True)
+    df['financeStage'].replace(list(finSta_count.keys()),[i for i in range(len(finSta_count))],inplace = True)
     corrmat = df.corr()
-    #print(df)
-    cols = corrmat.nlargest(k, '所在城市')['所在城市'].index    
+    print(df['financeStage'])
+    
+    cols = corrmat.nlargest(k, 'salary')['salary'].index    
     cm = np.corrcoef(df[cols].values.T) 
     sns.set(font_scale=1.25)    
     hm = sns.heatmap(cm, cbar=True, annot=True, fmt='.2f', annot_kws={'size': 10}, yticklabels=cols.values, xticklabels=cols.values, cmap='YlGnBu'  )
