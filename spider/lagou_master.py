@@ -159,7 +159,7 @@ if __name__ == '__main__':
                 joblist = crawl_jobs(position)
                 col = [
                     u'职位编码',        u'职位名称',            u'所在城市',
-                    u'发布日期',        u'薪资待遇(k)',         u'公司编码',
+                    u'发布日期',        u'薪资待遇',         u'公司编码',
                     u'公司名称',        u'公司全称',            u'公司规模',
                     u'所在区域',        u'最低学历',            u'融资状态',
                     u'公司类型',        u'经度',                u'纬度',           
@@ -168,6 +168,7 @@ if __name__ == '__main__':
                 df = pd.DataFrame(joblist, columns=col)
                 #write_to_excel(df,position)
                 write_to_csv(df,position,position_catalog)
+                
         log.info('爬取任务完成！')
     except Exception as e:
         #send_email(traceback.format_exc())

@@ -6,6 +6,8 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardi
 
 from util.file_reader import parse_job_xml
 import pandas as pd
+import numpy as np
+import seaborn as sns
 from collections import Counter,defaultdict
 
 from pyecharts import Bar, Scatter3D,Pie,Line,Parallel,WordCloud,Geo,Page,Grid,Polar

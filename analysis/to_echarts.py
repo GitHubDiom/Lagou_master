@@ -7,7 +7,7 @@ from config.config import *
 
 col =   [
             u'职位编码',        u'职位名称',            u'所在城市',
-            u'发布日期',        u'薪资待遇(k)',         u'公司编码',
+            u'发布日期',        u'薪资待遇',            u'公司编码',
             u'公司名称',        u'公司全称',            u'公司规模',
             u'所在区域',        u'最低学历',            u'融资状态',
             u'公司类型',        u'经度',                u'纬度',           
@@ -69,7 +69,7 @@ def solve_alot_problem(city,district,salary,job,degree,exp,finSta,position,posit
     city_district_count[city+district]+=1
 
 def main_solve():
-
+    joblist = []
     for position_catalog in os.listdir('../spider/data'):
         if position_catalog =='详细分析职位':
             for job in os.listdir('../spider/data/'+position_catalog):
@@ -79,7 +79,8 @@ def main_solve():
                 for item in reader:
                     if reader.line_num == 1:
                         continue     
-                    salary = int(float(item[5]))
+                    item[5] = int(float(item[5]))
+                    salary = item[5]
                     district = item[10]
                     city = item[3]
                     degree = item[11]
@@ -88,7 +89,17 @@ def main_solve():
                     attract = item[18]
                     position = item[2]
                     solve_alot_problem(city,district,salary,job,degree,exp,finSta,position,position_catalog,attract)
-
+                    joblist.append([item[i] for i in range(1,18)])
+    df = pd.DataFrame(joblist, columns=col)
+    #corrmat = df.corr()    
+    #print(city_count.keys())
+    #print([i for i in range(12)])
+    df.replace(list(city_count.keys()),[i for i in range(len(city_count)+1)])
+    print(df.所在城市)
+    #cols = corrmat.nlargest(k, 'createTime')['createTime'].index    
+    #cm = np.corrcoef(df[cols].values.T) 
+    #sns.set(font_scale=1.25)    
+    #hm = sns.heatmap(cm, cbar=True, annot=True, fmt='.2f', annot_kws={'size': 10}, yticklabels=cols.values, xticklabels=cols.values, cmap='YlGnBu'  )
 def creat_picture():
     page = Page()
     city_salary_avg = {city:salary_city[city]//city_count[city] for city in city_count if city_count[city]!=0}
@@ -184,5 +195,5 @@ def creat_picture():
     
 if __name__ == '__main__':
     main_solve()
-    creat_picture()
+    #creat_picture()
     
