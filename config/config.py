@@ -15,7 +15,7 @@ from pyecharts import Bar, Scatter3D,Pie,Line,Parallel,WordCloud,Geo,Page,Grid,P
 import smtplib
 from email.mime.text import MIMEText
 from email.header import Header
-
+import matplotlib.pyplot as plt
 from operator import itemgetter
 try:
     from urllib import parse as parse
