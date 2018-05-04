@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <job_list>
-    <job_catalog>
+    <!--><job_catalog>
         后端开发
         <job>Java</job>
         <job>C++</job>
@@ -145,7 +145,7 @@
         <job>售后工程师</job>
         <job>BI工程师</job>
         <job>企业软件其它</job>
-    </job_catalog>
+    </job_catalog><!-->
     <!-->以下为自行添加岗位<!-->
     <job_catalog>
         详细分析职位
