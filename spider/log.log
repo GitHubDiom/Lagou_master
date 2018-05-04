@@ -1,3 +1,357 @@
-2018-05-02 22:01:31,000 lagou_master.py [line:48] INFO:Python共有116页记录, 共约1740条记录
-2018-05-02 22:02:46,170 lagou_master.py [line:123] INFO:CSV文件创建成功，文件名路径为./data/详细分析职位/Python.csv
-2018-05-02 22:02:46,553 lagou_master.py [line:48] INFO:Ruby共有9页记录, 共约135条记录
+2018-05-03 09:27:49,516 lagou_master.py [line:49] INFO:Java共有1282页记录, 共约19230条记录
+2018-05-03 09:38:15,545 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/后端开发/Java.csv
+2018-05-03 09:38:16,281 lagou_master.py [line:49] INFO:C++共有228页记录, 共约3420条记录
+2018-05-03 09:40:58,688 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/后端开发/C++.csv
+2018-05-03 09:40:59,504 lagou_master.py [line:49] INFO:PHP共有392页记录, 共约5880条记录
+2018-05-03 09:45:29,789 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/后端开发/PHP.csv
+2018-05-03 09:45:30,414 lagou_master.py [line:49] INFO:数据挖掘共有77页记录, 共约1155条记录
+2018-05-03 09:46:19,615 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/后端开发/数据挖掘.csv
+2018-05-03 09:46:20,246 lagou_master.py [line:49] INFO:搜索算法共有5页记录, 共约75条记录
+2018-05-03 09:46:23,032 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/后端开发/搜索算法.csv
+2018-05-03 09:46:23,548 lagou_master.py [line:49] INFO:精准推荐共有48页记录, 共约720条记录
+2018-05-03 09:46:52,594 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/后端开发/精准推荐.csv
+2018-05-03 09:46:53,252 lagou_master.py [line:49] INFO:C共有318页记录, 共约4770条记录
+2018-05-03 09:50:50,491 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/后端开发/C.csv
+2018-05-03 09:50:51,034 lagou_master.py [line:49] INFO:C#共有53页记录, 共约795条记录
+2018-05-03 09:51:28,315 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/后端开发/C#.csv
+2018-05-03 09:51:28,907 lagou_master.py [line:49] INFO:全栈工程师共有11页记录, 共约165条记录
+2018-05-03 09:51:34,632 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/后端开发/全栈工程师.csv
+2018-05-03 09:51:35,213 lagou_master.py [line:49] INFO:.NET共有170页记录, 共约2550条记录
+2018-05-03 09:52:07,560 lagou_master.py [line:80] ERROR:error in .NET at page :46
+
+2018-05-03 09:52:09,001 lagou_master.py [line:151] ERROR:None
+2018-05-03 09:52:09,001 lagou_master.py [line:82] ERROR:Traceback (most recent call last):
+  File ".\lagou_master.py", line 56, in crawl_jobs
+    for each_item in response.json()['content']['positionResult']['result']:#通过分析Ajax返回的JSON数据进行筛选
+  File "E:\python36\lib\site-packages\requests\models.py", line 892, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "E:\python36\lib\site-packages\simplejson\__init__.py", line 518, in loads
+    return _default_decoder.decode(s)
+  File "E:\python36\lib\site-packages\simplejson\decoder.py", line 370, in decode
+    obj, end = self.raw_decode(s)
+  File "E:\python36\lib\site-packages\simplejson\decoder.py", line 400, in raw_decode
+    return self.scan_once(s, idx=_w(s, idx).end())
+simplejson.errors.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+2018-05-03 09:52:09,011 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/后端开发/.NET.csv
+2018-05-03 09:52:09,575 lagou_master.py [line:49] INFO:Hadoop共有15页记录, 共约225条记录
+2018-05-03 09:52:18,076 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/后端开发/Hadoop.csv
+2018-05-03 09:52:18,762 lagou_master.py [line:49] INFO:Python共有114页记录, 共约1710条记录
+2018-05-03 09:53:39,466 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/后端开发/Python.csv
+2018-05-03 09:53:40,078 lagou_master.py [line:49] INFO:Delphi共有3页记录, 共约45条记录
+2018-05-03 09:53:41,649 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/后端开发/Delphi.csv
+2018-05-03 09:53:42,041 lagou_master.py [line:49] INFO:VB共有1页记录, 共约15条记录
+2018-05-03 09:53:42,510 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/后端开发/VB.csv
+2018-05-03 09:53:42,796 lagou_master.py [line:49] INFO:Perl共有1页记录, 共约15条记录
+2018-05-03 09:53:43,076 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/后端开发/Perl.csv
+2018-05-03 09:53:43,566 lagou_master.py [line:49] INFO:Ruby共有9页记录, 共约135条记录
+2018-05-03 09:53:48,978 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/后端开发/Ruby.csv
+2018-05-03 09:53:49,551 lagou_master.py [line:49] INFO:Node.js共有30页记录, 共约450条记录
+2018-05-03 09:54:10,554 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/后端开发/Node.js.csv
+2018-05-03 09:54:11,138 lagou_master.py [line:49] INFO:Go共有56页记录, 共约840条记录
+2018-05-03 09:54:46,996 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/后端开发/Go.csv
+2018-05-03 09:54:47,619 lagou_master.py [line:49] INFO:ASP共有13页记录, 共约195条记录
+2018-05-03 09:54:55,620 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/后端开发/ASP.csv
+2018-05-03 09:54:55,829 lagou_master.py [line:49] INFO:Shell共有1页记录, 共约15条记录
+2018-05-03 09:54:56,042 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/后端开发/Shell.csv
+2018-05-03 09:54:56,489 lagou_master.py [line:49] INFO:区块链共有67页记录, 共约1005条记录
+2018-05-03 09:55:45,268 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/后端开发/区块链.csv
+2018-05-03 09:55:45,897 lagou_master.py [line:49] INFO:后端开发其它共有155页记录, 共约2325条记录
+2018-05-03 09:57:30,450 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/后端开发/后端开发其它.csv
+2018-05-03 09:57:31,013 lagou_master.py [line:49] INFO:HTML5共有28页记录, 共约420条记录
+2018-05-03 09:57:48,426 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/移动开发/HTML5.csv
+2018-05-03 09:57:48,990 lagou_master.py [line:49] INFO:Android共有381页记录, 共约5715条记录
+2018-05-03 09:59:35,363 lagou_master.py [line:80] ERROR:error in Android at page :135
+
+2018-05-03 09:59:36,717 lagou_master.py [line:151] ERROR:None
+2018-05-03 09:59:36,718 lagou_master.py [line:82] ERROR:Traceback (most recent call last):
+  File ".\lagou_master.py", line 56, in crawl_jobs
+    for each_item in response.json()['content']['positionResult']['result']:#通过分析Ajax返回的JSON数据进行筛选
+  File "E:\python36\lib\site-packages\requests\models.py", line 892, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "E:\python36\lib\site-packages\simplejson\__init__.py", line 518, in loads
+    return _default_decoder.decode(s)
+  File "E:\python36\lib\site-packages\simplejson\decoder.py", line 370, in decode
+    obj, end = self.raw_decode(s)
+  File "E:\python36\lib\site-packages\simplejson\decoder.py", line 400, in raw_decode
+    return self.scan_once(s, idx=_w(s, idx).end())
+simplejson.errors.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+2018-05-03 09:59:36,724 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/移动开发/Android.csv
+2018-05-03 09:59:37,362 lagou_master.py [line:49] INFO:iOS共有273页记录, 共约4095条记录
+2018-05-03 10:02:54,456 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/移动开发/iOS.csv
+2018-05-03 10:02:54,702 lagou_master.py [line:49] INFO:WP共有1页记录, 共约15条记录
+2018-05-03 10:02:54,965 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/移动开发/WP.csv
+2018-05-03 10:02:55,521 lagou_master.py [line:49] INFO:移动开发其它共有7页记录, 共约105条记录
+2018-05-03 10:02:59,050 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/移动开发/移动开发其它.csv
+2018-05-03 10:02:59,848 lagou_master.py [line:49] INFO:web前端共有940页记录, 共约14100条记录
+2018-05-03 10:03:04,582 lagou_master.py [line:80] ERROR:error in web前端 at page :8
+
+2018-05-03 10:03:05,997 lagou_master.py [line:151] ERROR:None
+2018-05-03 10:03:05,997 lagou_master.py [line:82] ERROR:Traceback (most recent call last):
+  File ".\lagou_master.py", line 56, in crawl_jobs
+    for each_item in response.json()['content']['positionResult']['result']:#通过分析Ajax返回的JSON数据进行筛选
+  File "E:\python36\lib\site-packages\requests\models.py", line 892, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "E:\python36\lib\site-packages\simplejson\__init__.py", line 518, in loads
+    return _default_decoder.decode(s)
+  File "E:\python36\lib\site-packages\simplejson\decoder.py", line 370, in decode
+    obj, end = self.raw_decode(s)
+  File "E:\python36\lib\site-packages\simplejson\decoder.py", line 400, in raw_decode
+    return self.scan_once(s, idx=_w(s, idx).end())
+simplejson.errors.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+2018-05-03 10:03:06,003 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/前端开发/web前端.csv
+2018-05-03 10:03:06,614 lagou_master.py [line:49] INFO:Flash共有7页记录, 共约105条记录
+2018-05-03 10:03:09,688 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/前端开发/Flash.csv
+2018-05-03 10:03:10,161 lagou_master.py [line:49] INFO:html5共有28页记录, 共约420条记录
+2018-05-03 10:03:28,738 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/前端开发/html5.csv
+2018-05-03 10:03:29,420 lagou_master.py [line:49] INFO:JavaScript共有20页记录, 共约300条记录
+2018-05-03 10:03:44,720 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/前端开发/JavaScript.csv
+2018-05-03 10:03:45,271 lagou_master.py [line:49] INFO:U3D共有61页记录, 共约915条记录
+2018-05-03 10:04:24,636 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/前端开发/U3D.csv
+2018-05-03 10:04:25,154 lagou_master.py [line:49] INFO:COCOS2D-X共有29页记录, 共约435条记录
+2018-05-03 10:04:42,179 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/前端开发/COCOS2D-X.csv
+2018-05-03 10:04:42,858 lagou_master.py [line:49] INFO:前端开发其它共有510页记录, 共约7650条记录
+2018-05-03 10:05:38,438 lagou_master.py [line:80] ERROR:error in 前端开发其它 at page :79
+
+2018-05-03 10:05:39,644 lagou_master.py [line:151] ERROR:None
+2018-05-03 10:05:39,644 lagou_master.py [line:82] ERROR:Traceback (most recent call last):
+  File ".\lagou_master.py", line 56, in crawl_jobs
+    for each_item in response.json()['content']['positionResult']['result']:#通过分析Ajax返回的JSON数据进行筛选
+  File "E:\python36\lib\site-packages\requests\models.py", line 892, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "E:\python36\lib\site-packages\simplejson\__init__.py", line 518, in loads
+    return _default_decoder.decode(s)
+  File "E:\python36\lib\site-packages\simplejson\decoder.py", line 370, in decode
+    obj, end = self.raw_decode(s)
+  File "E:\python36\lib\site-packages\simplejson\decoder.py", line 400, in raw_decode
+    return self.scan_once(s, idx=_w(s, idx).end())
+simplejson.errors.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+2018-05-03 10:05:39,654 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/前端开发/前端开发其它.csv
+2018-05-03 10:05:40,083 lagou_master.py [line:49] INFO:深度学习共有98页记录, 共约1470条记录
+2018-05-03 10:06:22,646 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/人工智能/深度学习.csv
+2018-05-03 10:06:23,182 lagou_master.py [line:49] INFO:机器学习共有51页记录, 共约765条记录
+2018-05-03 10:06:25,030 lagou_master.py [line:80] ERROR:error in 机器学习 at page :4
+
+2018-05-03 10:06:26,567 lagou_master.py [line:151] ERROR:None
+2018-05-03 10:06:26,568 lagou_master.py [line:82] ERROR:Traceback (most recent call last):
+  File ".\lagou_master.py", line 56, in crawl_jobs
+    for each_item in response.json()['content']['positionResult']['result']:#通过分析Ajax返回的JSON数据进行筛选
+  File "E:\python36\lib\site-packages\requests\models.py", line 892, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "E:\python36\lib\site-packages\simplejson\__init__.py", line 518, in loads
+    return _default_decoder.decode(s)
+  File "E:\python36\lib\site-packages\simplejson\decoder.py", line 370, in decode
+    obj, end = self.raw_decode(s)
+  File "E:\python36\lib\site-packages\simplejson\decoder.py", line 400, in raw_decode
+    return self.scan_once(s, idx=_w(s, idx).end())
+simplejson.errors.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+2018-05-03 10:06:26,577 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/人工智能/机器学习.csv
+2018-05-03 10:06:27,186 lagou_master.py [line:49] INFO:图像处理共有10页记录, 共约150条记录
+2018-05-03 10:06:33,089 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/人工智能/图像处理.csv
+2018-05-03 10:06:33,599 lagou_master.py [line:49] INFO:图像识别共有5页记录, 共约75条记录
+2018-05-03 10:06:35,823 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/人工智能/图像识别.csv
+2018-05-03 10:06:36,363 lagou_master.py [line:49] INFO:语音识别共有27页记录, 共约405条记录
+2018-05-03 10:06:51,213 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/人工智能/语音识别.csv
+2018-05-03 10:06:51,878 lagou_master.py [line:49] INFO:机器视觉共有227页记录, 共约3405条记录
+2018-05-03 10:09:25,679 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/人工智能/机器视觉.csv
+2018-05-03 10:09:26,199 lagou_master.py [line:49] INFO:算法工程师共有303页记录, 共约4545条记录
+2018-05-03 10:12:09,615 lagou_master.py [line:80] ERROR:error in 算法工程师 at page :224
+
+2018-05-03 10:12:10,836 lagou_master.py [line:151] ERROR:None
+2018-05-03 10:12:10,837 lagou_master.py [line:82] ERROR:Traceback (most recent call last):
+  File ".\lagou_master.py", line 56, in crawl_jobs
+    for each_item in response.json()['content']['positionResult']['result']:#通过分析Ajax返回的JSON数据进行筛选
+  File "E:\python36\lib\site-packages\requests\models.py", line 892, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "E:\python36\lib\site-packages\simplejson\__init__.py", line 518, in loads
+    return _default_decoder.decode(s)
+  File "E:\python36\lib\site-packages\simplejson\decoder.py", line 370, in decode
+    obj, end = self.raw_decode(s)
+  File "E:\python36\lib\site-packages\simplejson\decoder.py", line 400, in raw_decode
+    return self.scan_once(s, idx=_w(s, idx).end())
+simplejson.errors.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+2018-05-03 10:12:10,851 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/人工智能/算法工程师.csv
+2018-05-03 10:12:11,417 lagou_master.py [line:49] INFO:自然语言处理共有46页记录, 共约690条记录
+2018-05-03 10:12:41,058 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/人工智能/自然语言处理.csv
+2018-05-03 10:12:41,567 lagou_master.py [line:49] INFO:测试工程师共有684页记录, 共约10260条记录
+2018-05-03 10:18:20,697 lagou_master.py [line:80] ERROR:error in 测试工程师 at page :572
+
+2018-05-03 10:18:22,060 lagou_master.py [line:151] ERROR:None
+2018-05-03 10:18:22,061 lagou_master.py [line:82] ERROR:Traceback (most recent call last):
+  File ".\lagou_master.py", line 56, in crawl_jobs
+    for each_item in response.json()['content']['positionResult']['result']:#通过分析Ajax返回的JSON数据进行筛选
+  File "E:\python36\lib\site-packages\requests\models.py", line 892, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "E:\python36\lib\site-packages\simplejson\__init__.py", line 518, in loads
+    return _default_decoder.decode(s)
+  File "E:\python36\lib\site-packages\simplejson\decoder.py", line 370, in decode
+    obj, end = self.raw_decode(s)
+  File "E:\python36\lib\site-packages\simplejson\decoder.py", line 400, in raw_decode
+    return self.scan_once(s, idx=_w(s, idx).end())
+simplejson.errors.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+2018-05-03 10:18:22,068 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/测试/测试工程师.csv
+2018-05-03 10:18:22,642 lagou_master.py [line:49] INFO:自动化测试共有34页记录, 共约510条记录
+2018-05-03 10:18:42,370 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/测试/自动化测试.csv
+2018-05-03 10:18:42,981 lagou_master.py [line:49] INFO:功能测试共有10页记录, 共约150条记录
+2018-05-03 10:18:47,413 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/测试/功能测试.csv
+2018-05-03 10:18:47,992 lagou_master.py [line:49] INFO:性能测试共有15页记录, 共约225条记录
+2018-05-03 10:18:55,728 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/测试/性能测试.csv
+2018-05-03 10:18:56,388 lagou_master.py [line:49] INFO:测试开发共有72页记录, 共约1080条记录
+2018-05-03 10:19:40,967 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/测试/测试开发.csv
+2018-05-03 10:19:41,703 lagou_master.py [line:49] INFO:游戏测试共有26页记录, 共约390条记录
+2018-05-03 10:19:57,796 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/测试/游戏测试.csv
+2018-05-03 10:19:58,656 lagou_master.py [line:49] INFO:白盒测试共有686页记录, 共约10290条记录
+2018-05-03 10:20:38,821 lagou_master.py [line:80] ERROR:error in 白盒测试 at page :60
+
+2018-05-03 10:20:40,026 lagou_master.py [line:151] ERROR:None
+2018-05-03 10:20:40,026 lagou_master.py [line:82] ERROR:Traceback (most recent call last):
+  File ".\lagou_master.py", line 56, in crawl_jobs
+    for each_item in response.json()['content']['positionResult']['result']:#通过分析Ajax返回的JSON数据进行筛选
+  File "E:\python36\lib\site-packages\requests\models.py", line 892, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "E:\python36\lib\site-packages\simplejson\__init__.py", line 518, in loads
+    return _default_decoder.decode(s)
+  File "E:\python36\lib\site-packages\simplejson\decoder.py", line 370, in decode
+    obj, end = self.raw_decode(s)
+  File "E:\python36\lib\site-packages\simplejson\decoder.py", line 400, in raw_decode
+    return self.scan_once(s, idx=_w(s, idx).end())
+simplejson.errors.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+2018-05-03 10:20:40,035 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/测试/白盒测试.csv
+2018-05-03 10:20:40,301 lagou_master.py [line:49] INFO:灰盒测试共有1页记录, 共约15条记录
+2018-05-03 10:20:40,580 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/测试/灰盒测试.csv
+2018-05-03 10:20:40,945 lagou_master.py [line:49] INFO:黑盒测试共有2页记录, 共约30条记录
+2018-05-03 10:20:41,925 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/测试/黑盒测试.csv
+2018-05-03 10:20:42,335 lagou_master.py [line:49] INFO:手机测试共有1页记录, 共约15条记录
+2018-05-03 10:20:42,930 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/测试/手机测试.csv
+2018-05-03 10:20:43,402 lagou_master.py [line:49] INFO:硬件测试共有8页记录, 共约120条记录
+2018-05-03 10:20:47,889 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/测试/硬件测试.csv
+2018-05-03 10:20:48,619 lagou_master.py [line:49] INFO:测试经理共有685页记录, 共约10275条记录
+2018-05-03 10:27:21,215 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/测试/测试经理.csv
+2018-05-03 10:27:22,186 lagou_master.py [line:49] INFO:测试其它共有685页记录, 共约10275条记录
+2018-05-03 10:33:50,763 lagou_master.py [line:80] ERROR:error in 测试其它 at page :641
+
+2018-05-03 10:33:52,118 lagou_master.py [line:151] ERROR:None
+2018-05-03 10:33:52,119 lagou_master.py [line:82] ERROR:Traceback (most recent call last):
+  File ".\lagou_master.py", line 56, in crawl_jobs
+    for each_item in response.json()['content']['positionResult']['result']:#通过分析Ajax返回的JSON数据进行筛选
+  File "E:\python36\lib\site-packages\requests\models.py", line 892, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "E:\python36\lib\site-packages\simplejson\__init__.py", line 518, in loads
+    return _default_decoder.decode(s)
+  File "E:\python36\lib\site-packages\simplejson\decoder.py", line 370, in decode
+    obj, end = self.raw_decode(s)
+  File "E:\python36\lib\site-packages\simplejson\decoder.py", line 400, in raw_decode
+    return self.scan_once(s, idx=_w(s, idx).end())
+simplejson.errors.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+2018-05-03 10:33:52,132 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/测试/测试其它.csv
+2018-05-03 10:33:52,806 lagou_master.py [line:49] INFO:运维工程师共有240页记录, 共约3600条记录
+2018-05-03 10:36:44,742 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/运维/运维工程师.csv
+2018-05-03 10:36:45,306 lagou_master.py [line:49] INFO:运维开发工程师共有43页记录, 共约645条记录
+2018-05-03 10:37:11,090 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/运维/运维开发工程师.csv
+2018-05-03 10:37:11,838 lagou_master.py [line:49] INFO:网络工程师共有287页记录, 共约4305条记录
+2018-05-03 10:40:33,693 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/运维/网络工程师.csv
+2018-05-03 10:40:34,155 lagou_master.py [line:49] INFO:系统工程师共有38页记录, 共约570条记录
+2018-05-03 10:40:57,559 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/运维/系统工程师.csv
+2018-05-03 10:40:58,109 lagou_master.py [line:49] INFO:IT支持共有4页记录, 共约60条记录
+2018-05-03 10:41:00,037 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/运维/IT支持.csv
+2018-05-03 10:41:00,614 lagou_master.py [line:49] INFO:IDC共有7页记录, 共约105条记录
+2018-05-03 10:41:03,659 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/运维/IDC.csv
+2018-05-03 10:41:04,147 lagou_master.py [line:49] INFO:CDN共有6页记录, 共约90条记录
+2018-05-03 10:41:07,064 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/运维/CDN.csv
+2018-05-03 10:41:07,293 lagou_master.py [line:49] INFO:F5共有1页记录, 共约15条记录
+2018-05-03 10:41:07,545 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/运维/F5.csv
+2018-05-03 10:41:08,045 lagou_master.py [line:49] INFO:系统管理员共有4页记录, 共约60条记录
+2018-05-03 10:41:09,745 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/运维/系统管理员.csv
+2018-05-03 10:41:10,022 lagou_master.py [line:49] INFO:病毒分析共有1页记录, 共约15条记录
+2018-05-03 10:41:10,312 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/运维/病毒分析.csv
+2018-05-03 10:41:10,704 lagou_master.py [line:49] INFO:WEB安全共有2页记录, 共约30条记录
+2018-05-03 10:41:11,595 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/运维/WEB安全.csv
+2018-05-03 10:41:12,758 lagou_master.py [line:49] INFO:网络安全共有11页记录, 共约165条记录
+2018-05-03 10:41:18,361 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/运维/网络安全.csv
+2018-05-03 10:41:18,946 lagou_master.py [line:49] INFO:系统安全共有3页记录, 共约45条记录
+2018-05-03 10:41:20,573 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/运维/系统安全.csv
+2018-05-03 10:41:21,105 lagou_master.py [line:49] INFO:运维经理共有9页记录, 共约135条记录
+2018-05-03 10:41:25,679 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/运维/运维经理.csv
+2018-05-03 10:41:26,297 lagou_master.py [line:49] INFO:运维其它共有365页记录, 共约5475条记录
+2018-05-03 10:45:43,167 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/运维/运维其它.csv
+2018-05-03 10:45:43,848 lagou_master.py [line:49] INFO:MySQL共有11页记录, 共约165条记录
+2018-05-03 10:45:49,496 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/DBA/MySQL.csv
+2018-05-03 10:45:49,939 lagou_master.py [line:49] INFO:SQLServer共有1页记录, 共约15条记录
+2018-05-03 10:45:50,307 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/DBA/SQLServer.csv
+2018-05-03 10:45:50,917 lagou_master.py [line:49] INFO:Oracle共有8页记录, 共约120条记录
+2018-05-03 10:45:55,027 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/DBA/Oracle.csv
+2018-05-03 10:45:55,304 lagou_master.py [line:49] INFO:DB2共有1页记录, 共约15条记录
+2018-05-03 10:45:55,591 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/DBA/DB2.csv
+2018-05-03 10:45:56,071 lagou_master.py [line:49] INFO:MongoDB共有1页记录, 共约15条记录
+2018-05-03 10:45:56,382 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/DBA/MongoDB.csv
+2018-05-03 10:45:56,827 lagou_master.py [line:49] INFO:ETL共有21页记录, 共约315条记录
+2018-05-03 10:46:09,748 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/DBA/ETL.csv
+2018-05-03 10:46:10,345 lagou_master.py [line:49] INFO:Hive共有1页记录, 共约15条记录
+2018-05-03 10:46:10,835 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/DBA/Hive.csv
+2018-05-03 10:46:11,440 lagou_master.py [line:49] INFO:数据仓库共有27页记录, 共约405条记录
+2018-05-03 10:46:28,931 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/DBA/数据仓库.csv
+2018-05-03 10:46:29,481 lagou_master.py [line:49] INFO:DBA其它共有48页记录, 共约720条记录
+2018-05-03 10:46:56,073 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/DBA/DBA其它.csv
+2018-05-03 10:46:56,851 lagou_master.py [line:49] INFO:技术经理共有796页记录, 共约11940条记录
+2018-05-03 10:50:05,576 lagou_master.py [line:80] ERROR:error in 技术经理 at page :470
+
+2018-05-03 10:50:06,911 lagou_master.py [line:151] ERROR:None
+2018-05-03 10:50:06,915 lagou_master.py [line:82] ERROR:Traceback (most recent call last):
+  File ".\lagou_master.py", line 56, in crawl_jobs
+    for each_item in response.json()['content']['positionResult']['result']:#通过分析Ajax返回的JSON数据进行筛选
+  File "E:\python36\lib\site-packages\requests\models.py", line 892, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "E:\python36\lib\site-packages\simplejson\__init__.py", line 518, in loads
+    return _default_decoder.decode(s)
+  File "E:\python36\lib\site-packages\simplejson\decoder.py", line 370, in decode
+    obj, end = self.raw_decode(s)
+  File "E:\python36\lib\site-packages\simplejson\decoder.py", line 400, in raw_decode
+    return self.scan_once(s, idx=_w(s, idx).end())
+simplejson.errors.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+2018-05-03 10:50:06,927 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/高端职位/技术经理.csv
+2018-05-03 10:50:07,470 lagou_master.py [line:49] INFO:技术总监共有41页记录, 共约615条记录
+2018-05-03 10:50:36,697 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/高端职位/技术总监.csv
+2018-05-03 10:50:37,362 lagou_master.py [line:49] INFO:架构师共有273页记录, 共约4095条记录
+2018-05-03 10:53:50,153 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/高端职位/架构师.csv
+2018-05-03 10:53:50,697 lagou_master.py [line:49] INFO:CTO共有14页记录, 共约210条记录
+2018-05-03 10:53:58,810 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/高端职位/CTO.csv
+2018-05-03 10:53:59,428 lagou_master.py [line:49] INFO:运维总监共有3页记录, 共约45条记录
+2018-05-03 10:54:01,354 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/高端职位/运维总监.csv
+2018-05-03 10:54:02,106 lagou_master.py [line:49] INFO:技术合伙人共有389页记录, 共约5835条记录
+2018-05-03 10:54:13,503 lagou_master.py [line:80] ERROR:error in 技术合伙人 at page :17
+
+2018-05-03 10:54:14,710 lagou_master.py [line:151] ERROR:None
+2018-05-03 10:54:14,710 lagou_master.py [line:82] ERROR:Traceback (most recent call last):
+  File ".\lagou_master.py", line 56, in crawl_jobs
+    for each_item in response.json()['content']['positionResult']['result']:#通过分析Ajax返回的JSON数据进行筛选
+  File "E:\python36\lib\site-packages\requests\models.py", line 892, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "E:\python36\lib\site-packages\simplejson\__init__.py", line 518, in loads
+    return _default_decoder.decode(s)
+  File "E:\python36\lib\site-packages\simplejson\decoder.py", line 370, in decode
+    obj, end = self.raw_decode(s)
+  File "E:\python36\lib\site-packages\simplejson\decoder.py", line 400, in raw_decode
+    return self.scan_once(s, idx=_w(s, idx).end())
+simplejson.errors.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+2018-05-03 10:54:14,718 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/高端职位/技术合伙人.csv
+2018-05-03 10:54:15,243 lagou_master.py [line:49] INFO:项目总监共有436页记录, 共约6540条记录
+2018-05-03 10:58:55,842 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/高端职位/项目总监.csv
+2018-05-03 10:58:56,436 lagou_master.py [line:49] INFO:测试总监共有3页记录, 共约45条记录
+2018-05-03 10:58:57,690 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/高端职位/测试总监.csv
+2018-05-03 10:58:58,496 lagou_master.py [line:49] INFO:安全专家共有357页记录, 共约5355条记录
+2018-05-03 11:01:56,507 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/高端职位/安全专家.csv
+2018-05-03 11:01:57,267 lagou_master.py [line:49] INFO:高端技术职位其它共有385页记录, 共约5775条记录
+2018-05-03 11:05:17,478 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/高端职位/高端技术职位其它.csv
+2018-05-03 11:05:18,127 lagou_master.py [line:49] INFO:项目经理共有226页记录, 共约3390条记录
+2018-05-03 11:07:59,381 lagou_master.py [line:124] INFO:CSV文件创建成功，文件名路径为./data/项目管理/项目经理.csv
+2018-05-03 11:08:00,017 lagou_master.py [line:49] INFO:项目助理共有1276页记录, 共约19140条记录
