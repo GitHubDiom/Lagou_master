@@ -32,23 +32,28 @@ salary_finSta = defaultdict(int)
 
 
 city_district_count = defaultdict(int)
-position_hot = defaultdict(int)
 
-def solve_alot_problem(catalog,city,district,salary,job,degree,exp,finSta,position_catalog,attract):
+position_degree = defaultdict(dict)
+position_degree_cnt = defaultdict(int)
+
+def solve_alot_problem(city,district,salary,job,degree,exp,finSta,position,position_catalog,attract):
     salary_city[city] += salary
     city_count[city] += 1
 
     salary_district[city+district] += salary
     district_count[city+district] += 1
 
-    if catalog =='详细分析职位':
+    if position_catalog =='详细分析职位':
         salary_job[job] += salary
         job_count[job] += 1
     
-   
+    position_degree_cnt[degree]+=1
+    position_degree[job].update(position_degree_cnt)
+
     item = re.findall(re.compile('[\u4e00-\u9fa5]{3,10}'),attract)
     for att in item:
         attract_count[att]+=1
+
     salary_catalog[position_catalog] += salary
     catalog_count[position_catalog]+=1
 
@@ -66,22 +71,23 @@ def solve_alot_problem(catalog,city,district,salary,job,degree,exp,finSta,positi
 def main_solve():
 
     for position_catalog in os.listdir('../spider/data'):
-        #if position_catalog =='详细分析职位':
-        for job in os.listdir('../spider/data/'+position_catalog):
-            csvFile =  open('../spider/data/'+position_catalog+'/'+job,'r',encoding='utf-8')
-            reader =  csv.reader(csvFile)
-            job = job.rstrip('.csv')
-            for item in reader:
-                if reader.line_num == 1:
-                    continue     
-                salary = int(float(item[5]))
-                district = item[10]
-                city = item[3]
-                degree = item[11]
-                exp = item[17]
-                finSta = item[12]
-                attract = item[18]
-                solve_alot_problem(position_catalog,city,district,salary,job,degree,exp,finSta,position_catalog,attract)
+        if position_catalog =='详细分析职位':
+            for job in os.listdir('../spider/data/'+position_catalog):
+                csvFile =  open('../spider/data/'+position_catalog+'/'+job,'r',encoding='utf-8')
+                reader =  csv.reader(csvFile)
+                job = job.rstrip('.csv')
+                for item in reader:
+                    if reader.line_num == 1:
+                        continue     
+                    salary = int(float(item[5]))
+                    district = item[10]
+                    city = item[3]
+                    degree = item[11]
+                    exp = item[17]
+                    finSta = item[12]
+                    attract = item[18]
+                    position = item[2]
+                    solve_alot_problem(city,district,salary,job,degree,exp,finSta,position,position_catalog,attract)
 
 def creat_picture():
     page = Page()
@@ -167,6 +173,13 @@ def creat_picture():
     wordcloud.add("", name, value, word_size_range=[20, 100],shape='star')
     #wordcloud.render()
     page.add(wordcloud)
+    #print(position_degree)
+    #print("职位\t\t\t本科\t大专\t不限\t硕士\t博士")
+    #for position in position_degree:
+    #    print(position,end="\t\t\t")
+    #    for degree in position_degree[position]:
+    #        print(position_degree[position][degree],end="\t")
+    #    print('\n')
     page.render()
     
 if __name__ == '__main__':
