@@ -91,15 +91,18 @@ def main_solve():
                     solve_alot_problem(city,district,salary,job,degree,exp,finSta,position,position_catalog,attract)
                     joblist.append([item[i] for i in range(1,18)])
     df = pd.DataFrame(joblist, columns=col)
-    #corrmat = df.corr()    
-    #print(city_count.keys())
-    #print([i for i in range(12)])
-    df.replace(list(city_count.keys()),[i for i in range(len(city_count)+1)])
-    print(df.所在城市)
-    #cols = corrmat.nlargest(k, 'createTime')['createTime'].index    
-    #cm = np.corrcoef(df[cols].values.T) 
-    #sns.set(font_scale=1.25)    
-    #hm = sns.heatmap(cm, cbar=True, annot=True, fmt='.2f', annot_kws={'size': 10}, yticklabels=cols.values, xticklabels=cols.values, cmap='YlGnBu'  )
+    
+    #print(city_count) 
+    k=3
+    df['所在城市'].replace(list(city_count.keys()),[i for i in range(len(city_count))],inplace = True)
+    df['融资状态'].replace(list(finSta_count.keys()),[i for i in range(len(finSta_count))],inplace = True)
+    corrmat = df.corr()
+    #print(df)
+    cols = corrmat.nlargest(k, '所在城市')['所在城市'].index    
+    cm = np.corrcoef(df[cols].values.T) 
+    sns.set(font_scale=1.25)    
+    hm = sns.heatmap(cm, cbar=True, annot=True, fmt='.2f', annot_kws={'size': 10}, yticklabels=cols.values, xticklabels=cols.values, cmap='YlGnBu'  )
+    plt.show()
 def creat_picture():
     page = Page()
     city_salary_avg = {city:salary_city[city]//city_count[city] for city in city_count if city_count[city]!=0}
