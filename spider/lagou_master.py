@@ -166,6 +166,7 @@ if __name__ == '__main__':
                     u'全职/实习',       u'工作经验',            u'吸引条件'
                     ]
                 df = pd.DataFrame(joblist, columns=col)
+                df.drop_duplicates()
                 #write_to_excel(df,position)
                 write_to_csv(df,position,position_catalog)
                 
