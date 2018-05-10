@@ -34,52 +34,48 @@ def get_Info(positionName,pn):
                     }
     return form_data
 
-def crawl_jobs(positionName):
+def crawl_jobs(craw_job_list):
+    JOB_DATA = list()
     """crawl the job info from lagou H5 web pages"""
-    try:
-        JOB_DATA = list()
-        max_page_number = get_max_pageNo(positionName)
-        info_str=positionName, "共有",max_page_number,"页记录, 共约",max_page_number * 15,"条记录"
-        str_info = ''
-        for s in info_str:
-            if s=='"':
-                continue
-            else:
-                str_info=str_info+str(s)
-        log.info(str_info)
-        for pn in range(1, max_page_number + 1):
-            headers=get_headers()
-            form_data=get_Info(positionName,pn)
-            url="https://www.lagou.com/jobs/positionAjax.json?needAddtionalResult=false"
-            response = requests.post(url,headers=headers,data=form_data)
-            if response.status_code == 200:
-                for each_item in response.json()['content']['positionResult']['result']:#通过分析Ajax返回的JSON数据进行筛选
-                    a= re.findall('\d\d?',each_item['salary'])
-                    l=int(a[0])
-                    try:
-                        r=int(a[1])
-                    except:
-                        r=l
-                    JOB_DATA.append([each_item['positionId'],       each_item['positionName'],      each_item['city'],
-                                        each_item['createTime'],       (l+(r-l)*0.4),           each_item['companyId'], 
-                                        each_item['companyShortName'], each_item['companyFullName'],   each_item['companySize'],
-                                        each_item['district'],         each_item['education'],         each_item['financeStage'],
-                                        each_item['industryField'],    each_item['longitude'],         each_item['latitude'],
-                                        each_item['jobNature'],        each_item['workYear'],          each_item['companyLabelList']
-                                    ])
-                print("当前页数：{0} 总进度为:{1}%".format(pn,round((pn + 1) * 100 / max_page_number)), end="\r")
-                time.sleep(0.01)
-                if pn%20 ==0:
-                    time.sleep(TIME_SLEEP)
-            elif response.status_code == 403:
-                log.error('request is forbidden by the server...')
-            else:
-                log.error(response.status_code)
-        return JOB_DATA
-    except Exception:
-        log.error('error in '+positionName+' at page :'+str(pn)+'\n')
-        send_email(traceback.format_exc())        
-        log.error(traceback.format_exc())
+    for position_catalog in craw_job_list:
+        for positionName in craw_job_list[position_catalog]:
+            try:
+                max_page_number = get_max_pageNo(positionName)
+                log.info(positionName+"共有"+str(max_page_number)+"页记录, 共约"+str(max_page_number * 15)+"条记录")
+                for pn in range(1, max_page_number + 1):
+                    headers=get_headers()
+                    form_data=get_Info(positionName,pn)
+                    url="https://www.lagou.com/jobs/positionAjax.json?needAddtionalResult=false"
+                    response = requests.post(url,headers=headers,data=form_data)
+                    if response.status_code == 200:
+                        for each_item in response.json()['content']['positionResult']['result']:#通过分析Ajax返回的JSON数据进行筛选
+                            a= re.findall('\d\d?',each_item['salary'])
+                            l=int(a[0])
+                            try:
+                                r=int(a[1])
+                            except:
+                                r=l
+                            JOB_DATA.append([each_item['positionId'],       each_item['positionName'],      each_item['city'],
+                                                each_item['createTime'],       (l+(r-l)*0.4),           each_item['companyId'], 
+                                                each_item['companyShortName'], each_item['companyFullName'],   each_item['companySize'],
+                                                each_item['district'],         each_item['education'],         each_item['financeStage'],
+                                                each_item['industryField'],    each_item['longitude'],         each_item['latitude'],
+                                                each_item['jobNature'],        each_item['workYear'],          each_item['companyLabelList'],
+                                                positionName
+                                            ])
+                        print("当前页数：{0} 总进度为:{1}%".format(pn,round((pn + 1) * 100 / max_page_number)), end="\r")
+                        time.sleep(0.01)
+                        if pn%20 ==0:
+                            time.sleep(TIME_SLEEP)
+                    elif response.status_code == 403:
+                        log.error('request is forbidden by the server...')
+                    else:
+                        log.error(response.status_code)
+            except Exception:
+                log.error('error in '+positionName+' at page :'+str(pn)+'\n')
+                send_email(traceback.format_exc())        
+                log.error(traceback.format_exc())
+    return JOB_DATA
 
 def get_max_pageNo(positionName):
     """return the max page number of a specific job"""
@@ -112,9 +108,9 @@ def get_max_pageNo(positionName):
 #    except:
 #        log.error("路径为 "+excel_path+"的Excel表格创建失败")
 
-def write_to_csv(df , position,position_catalog):
-    path ='./data/'+position_catalog+'/'
-    csv_path = path+position+'.csv'
+def write_to_csv(df):
+    path ='./data/'
+    csv_path = path+'Info.csv'
     try:
         if not os.path.exists('./data'):
             os.mkdir('./data')
@@ -130,17 +126,11 @@ def send_email(text):
     mail_host="smtp.163.com"  #设置服务器
     mail_user="diom_wu@163.com"#用户名
     mail_pass="XXXXXX"   #SMTP口令 
-    
     sender = 'diom_wu@163.com'
     receivers = ['diom_wu@163.com']  
-    
     message = MIMEText(text, 'plain', 'utf-8')
-    #message['From'] = Header("测试", 'utf-8')
-    #message['To'] =  Header("测试", 'utf-8')
-    
     subject = '文件运行错误报告'
     message['Subject'] = Header(subject, 'utf-8')
-
     try:
         smtpObj = smtplib.SMTP() 
         smtpObj.connect(mail_host, 25)    
@@ -154,22 +144,18 @@ def send_email(text):
 if __name__ == '__main__':
     craw_job_list = parse_job_xml('../config/job.xml')
     try:
-        for position_catalog in craw_job_list:
-            for position in craw_job_list[position_catalog]:
-                joblist = crawl_jobs(position)
-                col = [
-                    u'职位编码',        u'职位名称',            u'所在城市',
-                    u'发布日期',        u'薪资待遇',         u'公司编码',
-                    u'公司名称',        u'公司全称',            u'公司规模',
-                    u'所在区域',        u'最低学历',            u'融资状态',
-                    u'公司类型',        u'经度',                u'纬度',           
-                    u'全职/实习',       u'工作经验',            u'吸引条件'
-                    ]
-                df = pd.DataFrame(joblist, columns=col)
-                df.drop_duplicates()
-                #write_to_excel(df,position)
-                write_to_csv(df,position,position_catalog)
-                
+        joblist = crawl_jobs(craw_job_list)
+        col = [
+            u'职位编码',        u'职位名称',            u'所在城市',
+            u'发布日期',        u'薪资待遇',            u'公司编码',
+            u'公司名称',        u'公司全称',            u'公司规模',
+            u'所在区域',        u'最低学历',            u'融资状态',
+            u'公司类型',        u'经度',                u'纬度',           
+            u'全职/实习',       u'工作经验',            u'吸引条件',
+            u'职业类别'
+            ]
+        df = pd.DataFrame(joblist, columns=col)
+        write_to_csv(df)
         log.info('爬取任务完成！')
     except Exception as e:
         #send_email(traceback.format_exc())
