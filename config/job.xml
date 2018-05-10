@@ -149,14 +149,14 @@
     <!-->以下为自行添加岗位<!-->
     <job_catalog>
         详细分析职位
+        <job>图像处理</job>
+        <job>机器视觉</job>
         <job>Hadoop</job>
         <job>iOS</job>
         <job>Python</job>
         <job>Ruby</job>
         <job>区块链</job>
-        <job>图像处理</job>
         <job>机器学习</job>
-        <job>机器视觉</job>
         <job>深度学习</job>
         <job>算法工程师</job>
         <job>语音识别</job>
